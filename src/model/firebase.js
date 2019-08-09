@@ -1,17 +1,14 @@
-var admin = require("firebase-admin");
+import Firebase from "firebase";
 
-// Fetch the service account key JSON file contents
-var serviceAccount = require("../model/firebase.json");
+const config = {
+  apiKey: "AIzaSyAXG99GnIM79e59KdBIkBADaOqL02PSGTo",
+  authDomain: "locationgps-8240b.firebaseapp.com",
+  databaseURL: "https://locationgps-8240b.firebaseio.com",
+  projectId: "locationgps-8240b",
+  storageBucket: "locationgps-8240b.appspot.com",
+  messagingSenderId: "825049450783",
+  appId: "1:825049450783:web:3dccde4ca18557f2"
+};
+Firebase.initializeApp(config);
 
-// Initialize the app with a service account, granting admin privileges
-admin.initializeApp({
-  credential: admin.credential.cert(serviceAccount),
-  databaseURL: "https://locationgps-8240b.firebaseio.com"
-});
-
-// As an admin, the app has access to read and write all data, regardless of Security Rules
-var db = admin.database();
-var ref = db.ref("/Location");
-ref.on("value", function(snapshot) {
-  console.log(snapshot.val());
-});
+export default Firebase;

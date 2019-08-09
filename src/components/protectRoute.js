@@ -4,19 +4,8 @@ import {
     Route,
     Redirect,
 } from "react-router-dom";
-import axios from "axios";
-
-let 5 = async () => {
-    const res = await axios.get("http://52.246.162.234:4000/user/islogin", {
-        headers: {
-            "Content-Type": "application/json"
-        }
-    });
-    console.log(res);
-}
 
 function PrivateRoute({ component: Component, ...rest }) {
-    islogin();
     return (
         <Route
             {...rest}
@@ -26,8 +15,7 @@ function PrivateRoute({ component: Component, ...rest }) {
                 ) : (
                         <Redirect
                             to={{
-                                pathname: "/login",
-                                state: { from: props.location }
+                                pathname: "/login"
                             }}
                         />
                     )

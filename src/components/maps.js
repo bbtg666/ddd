@@ -1,7 +1,7 @@
 import React, { Component } from "react";
 import { Map, GoogleApiWrapper, Marker } from "google-maps-react";
 
-import Firebase from "../model/Firebase.js";
+import Firebase from "../model/firebase";
 
 const mapStyles = {
   width: "500px",
@@ -40,8 +40,6 @@ export class MapContainer extends Component {
           position={{ lat: latlng.lat, lng: latlng.lng }}
           icon={{
             url: "https://image.flaticon.com/icons/svg/64/64339.svg",
-            anchor: new google.maps.Point(10, 10),
-            scaledSize: new google.maps.Size(24, 24)
           }}
         />
       </Map>

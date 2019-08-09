@@ -39,20 +39,20 @@ export default class Example extends React.Component {
   }
 
 
-  handleSubmit = async (e)=>{
+  handleSubmit = async (e) => {
     e.preventDefault();
     const user = {
       email: this.state.email,
       password: this.state.password
     }
-    const res = await axios.post("http://52.246.162.234:4000/user/signin", user,{
+    const res = await axios.post("http://52.246.162.234:4000/user/signin", user, {
       headers: {
         "Content-Type": "application/json"
       }
     })
     sessionStorage.setItem('user', res.data.token);
-    axios.defaults.headers.common["Authorization"] = res.data.token;
-    this.props.history.push('/')
+    axios.defaults.headers.common["Authorization"] = `JWT ${res.data.token}`;
+    this.props.history.push('/');
   }
 
   toggle(tab) {

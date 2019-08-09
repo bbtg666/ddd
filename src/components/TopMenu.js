@@ -12,9 +12,6 @@ import { Link, Route, Redirect } from "react-router-dom";
 import jwt from "jsonwebtoken"
 
 import "./TopMenu.css";
-import Login from "./Login.js";
-import List from './list';
-import PrivateRoute from './protectRoute';
 
 export default class TopMenu extends React.Component {
   constructor(props) {
@@ -59,12 +56,7 @@ export default class TopMenu extends React.Component {
             <Nav className="ml-auto" navbar>
               <NavItem>
                 <NavLink>
-                  <Link to="/list">Danh sách</Link>
-                </NavLink>
-              </NavItem>
-              <NavItem>
-                <NavLink>
-                  <Link to="/history">Lịch sử</Link>
+                  <Link to="/live">Live</Link>
                 </NavLink>
               </NavItem>
               <NavItem>
@@ -78,7 +70,7 @@ export default class TopMenu extends React.Component {
             </Nav>
           </Collapse>
         </Navbar>
-        
+
       </div>
     );
   }
